@@ -30,7 +30,7 @@ fn main() {
 
     // Load in the modules
     let mut modules = Modules::new();
-    modules.register(ViewRenderer::new("views", "_layout"));
+    modules.register(ViewRenderer::new("views", "_layout", get_prefix()));
     modules.register(Maps::new());
 
     // Load in the controllers
@@ -49,6 +49,10 @@ fn main() {
 fn get_addr() -> SocketAddr {
     let port = u16::from_str(&env::var("PORT").unwrap()).unwrap();
     SocketAddr::new(IpAddr::from_str("0.0.0.0").unwrap(), port)
+}
+
+fn get_prefix() -> String {
+    env::var("PREFIX").unwrap_or("".into())
 }
 
 fn error(_: &Modules, _: StatusCode) -> Vec<u8> {

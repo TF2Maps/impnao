@@ -76,7 +76,7 @@ dependencies = [
 [[package]]
 name = "clockwork-handlebars"
 version = "0.1.0"
-source = "git+https://github.com/carbidegames/clockwork-handlebars.git#6c3f2971d61909cb97ada110a7a9200f4c4f1180"
+source = "git+https://github.com/carbidegames/clockwork-handlebars.git#594b9d85032bbead719e5374b109f5a9bc4e3cf6"
 dependencies = [
  "clockwork 0.1.0 (git+https://github.com/carbidegames/clockwork.git)",
  "handlebars 0.19.1 (registry+https://github.com/rust-lang/crates.io-index)",
