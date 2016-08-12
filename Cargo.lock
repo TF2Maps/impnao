@@ -2,15 +2,15 @@
 name = "impnao"
 version = "0.1.0"
 dependencies = [
- "clockwork 0.1.0",
- "clockwork-handlebars 0.1.0",
- "clockwork-server 0.1.0",
+ "clockwork 0.1.0 (git+https://github.com/carbidegames/clockwork.git)",
+ "clockwork-handlebars 0.1.0 (git+https://github.com/carbidegames/clockwork-handlebars.git)",
+ "clockwork-server 0.1.0 (git+https://github.com/carbidegames/clockwork-server.git)",
  "dotenv 0.8.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "log 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "log4rs 0.4.8 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 0.7.15 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_macros 0.7.15 (registry+https://github.com/rust-lang/crates.io-index)",
- "webapp 0.1.0",
+ "webapp 0.1.0 (git+https://github.com/carbidegames/webapp.git)",
 ]
 
 [[package]]
@@ -63,35 +63,38 @@ dependencies = [
 [[package]]
 name = "clockwork"
 version = "0.1.0"
+source = "git+https://github.com/carbidegames/clockwork.git#bd7b8ed0b9483f6df8e40b81c8314a96c9ff96fd"
 dependencies = [
  "log 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "mopa 0.2.2 (registry+https://github.com/rust-lang/crates.io-index)",
  "route-recognizer 0.1.11 (registry+https://github.com/rust-lang/crates.io-index)",
  "try_opt 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "url 1.2.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "webapp 0.1.0",
+ "webapp 0.1.0 (git+https://github.com/carbidegames/webapp.git)",
 ]
 
 [[package]]
 name = "clockwork-handlebars"
 version = "0.1.0"
+source = "git+https://github.com/carbidegames/clockwork-handlebars.git#6c3f2971d61909cb97ada110a7a9200f4c4f1180"
 dependencies = [
- "clockwork 0.1.0",
+ "clockwork 0.1.0 (git+https://github.com/carbidegames/clockwork.git)",
  "handlebars 0.19.1 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde 0.7.15 (registry+https://github.com/rust-lang/crates.io-index)",
  "serde_macros 0.7.15 (registry+https://github.com/rust-lang/crates.io-index)",
- "webapp 0.1.0",
+ "webapp 0.1.0 (git+https://github.com/carbidegames/webapp.git)",
 ]
 
 [[package]]
 name = "clockwork-server"
 version = "0.1.0"
+source = "git+https://github.com/carbidegames/clockwork-server.git#d2d3bc687257cf22f44b14fa99e670f476845a15"
 dependencies = [
  "crossbeam 0.2.10 (registry+https://github.com/rust-lang/crates.io-index)",
  "hyper 0.10.0-a.0 (git+https://github.com/hyperium/hyper.git)",
  "log 0.3.6 (registry+https://github.com/rust-lang/crates.io-index)",
  "num_cpus 0.2.13 (registry+https://github.com/rust-lang/crates.io-index)",
- "webapp 0.1.0",
+ "webapp 0.1.0 (git+https://github.com/carbidegames/webapp.git)",
 ]
 
 [[package]]
@@ -719,6 +722,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 [[package]]
 name = "webapp"
 version = "0.1.0"
+source = "git+https://github.com/carbidegames/webapp.git#7e66cbdd354e99748a1ad1c0a3a47bf71bddb60d"
 dependencies = [
  "hyper 0.10.0-a.0 (git+https://github.com/hyperium/hyper.git)",
  "try_opt 0.1.1 (registry+https://github.com/rust-lang/crates.io-index)",
