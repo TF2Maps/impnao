@@ -1,12 +1,15 @@
+<h1>ImpNao Map Tracker</h1>
+
 <form action="{{res "/add"}}" method="post">
-    <h1>Add Map</h1>
+    <h2>Add</h2>
     <input name="name" type="text" autocomplete="off" placeholder="cp_mymap_a1" />
     <input name="link" type="text" autocomplete="off" placeholder="http://example.com/download/cp_mymap_a1.bsp" />
+    <input name="password" type="text" autocomplete="off" placeholder="remove password" />
     <button type="submit">Add</button>
 </form>
 
 <article>
-    <h1>Maps</h1>
+    <h2>Maps</h2>
     <table>
         <tr>
             <th>Name</th>
@@ -20,3 +23,9 @@
         {{/each}}
     </table>
 </article>
+
+<form action="{{res "/remove"}}" method="post">
+    <h2>Remove</h2>
+    <input name="password" type="text" autocomplete="off" placeholder="remove password" />
+    <button type="submit">Remove</button>
+</form>

@@ -24,4 +24,13 @@ impl Maps {
         let maps = self.maps.read().unwrap();
         maps.clone()
     }
+
+    pub fn remove_with_password(&self, password: &str) {
+        if password == "" {
+            return; // Because there are lazy people
+        }
+
+        let mut maps = self.maps.write().unwrap();
+        maps.retain(|m| m.password != password);
+    }
 }
