@@ -35,7 +35,7 @@ fn main() {
 
     // Load in the controllers
     let mut routes = Routes::new();
-    routes.get("/public/*", routes::file_handler("./public"));
+    routes.get("impnao/public/*", routes::file_handler("./public"));
     controllers::register(&mut routes);
 
     // Start the server
