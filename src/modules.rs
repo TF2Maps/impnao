@@ -16,6 +16,12 @@ impl Maps {
     }
 
     pub fn add(&self, entry: MapEntry) {
+        // Don't add empty maps
+        // TODO: Add form validation
+        if entry.name == "" || entry.link == ""  {
+            return;
+        }
+
         let mut maps = self.maps.write().unwrap();
         maps.push(entry);
     }
