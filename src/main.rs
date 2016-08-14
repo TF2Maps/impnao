@@ -5,6 +5,7 @@ extern crate dotenv;
 #[macro_use] extern crate log;
 extern crate log4rs;
 extern crate webapp;
+extern crate serde_json;
 extern crate clockwork;
 extern crate clockwork_handlebars;
 extern crate clockwork_server;

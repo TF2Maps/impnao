@@ -25,12 +25,12 @@ impl Maps {
         maps.clone()
     }
 
-    pub fn remove_with_password(&self, password: &str) {
+    pub fn remove(&self, name: &str, password: &str) {
         if password == "" {
             return; // Because there are lazy people
         }
 
         let mut maps = self.maps.write().unwrap();
-        maps.retain(|m| m.password != password);
+        maps.retain(|m| !(m.name == name && m.password == password));
     }
 }

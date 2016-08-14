@@ -24,7 +24,9 @@ impl RouteModel for MapEntry {
     }
 }
 
+#[derive(Deserialize)]
 pub struct MapRemoveModel {
+    pub name: String,
     pub password: String,
 }
 
@@ -33,6 +35,7 @@ impl RouteModel for MapRemoveModel {
         let body = body.as_form();
 
         MapRemoveModel {
+            name: body.get("name").unwrap(),
             password: body.get("password").unwrap(),
         }
     }

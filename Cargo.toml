@@ -7,8 +7,9 @@ authors = ["Layl <LaylConway@users.noreply.github.com>"]
 dotenv = "0.8.0"
 log = "0.3.6"
 log4rs = {version = "0.4.8", features = ["toml"]}
-serde = "^0.7.0"
-serde_macros = "^0.7.0"
+serde = "^0.8.0"
+serde_json = "^0.8.0"
+serde_macros = "^0.8.0"
 webapp = {git = "https://github.com/carbidegames/webapp.git"}
 clockwork = {git = "https://github.com/carbidegames/clockwork.git"}
 clockwork-handlebars = {git = "https://github.com/carbidegames/clockwork-handlebars.git"}

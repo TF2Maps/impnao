@@ -1,3 +1,5 @@
+mod api;
+
 use clockwork::Modules;
 use clockwork::routes::{self, Routes, UriParams, BodyParams};
 use clockwork::routes::RouteResult::{self, Html, Redirect};
@@ -9,6 +11,8 @@ pub fn register(routes: &mut Routes) {
     routes.get("/impnao", home);
     routes.post("/impnao/add", routes::model_handler(add));
     routes.post("/impnao/remove", routes::model_handler(remove));
+
+    api::register(routes)
 }
 
 fn home(modules: &Modules, _: UriParams, _: BodyParams) -> RouteResult {
@@ -35,7 +39,7 @@ fn remove(modules: &Modules, model: MapRemoveModel) -> RouteResult {
     let maps: &Maps = modules.get().unwrap();
 
     // Remove the map
-    maps.remove_with_password(&model.password);
+    maps.remove(&model.name, &model.password);
 
     Redirect("/impnao".into())
 }
