@@ -31,9 +31,15 @@ impl Maps {
         maps.clone()
     }
 
-    pub fn remove(&self, name: &str, password: &str) {
+    pub fn remove(&self, name: &str) {
+        let mut maps = self.maps.write().unwrap();
+        maps.retain(|m| !(m.name == name));
+    }
+
+    pub fn remove_with_password(&self, name: &str, password: &str) {
+        // Because there are lazy people
         if password == "" {
-            return; // Because there are lazy people
+            return;
         }
 
         let mut maps = self.maps.write().unwrap();

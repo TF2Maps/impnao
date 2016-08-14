@@ -39,7 +39,7 @@ fn remove(modules: &Modules, model: MapRemoveModel) -> RouteResult {
     let maps: &Maps = modules.get().unwrap();
 
     // Remove the map
-    maps.remove(&model.name, &model.password);
+    maps.remove_with_password(&model.name, &model.password);
 
     Redirect("/impnao".into())
 }

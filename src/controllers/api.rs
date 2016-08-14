@@ -2,7 +2,7 @@ use serde_json;
 use clockwork::Modules;
 use clockwork::routes::{Routes, UriParams, BodyParams};
 use clockwork::routes::RouteResult::{self, Raw};
-use models::{MapRemoveModel, MapEntry};
+use models::MapEntry;
 use modules::Maps;
 
 pub fn register(routes: &mut Routes) {
@@ -10,16 +10,13 @@ pub fn register(routes: &mut Routes) {
     routes.post("/impnao/api/maps", add);
 
     // TODO: These routes don't conform to REST
-    routes.post("/impnao/api/maps/:name/remove", remove);
+    routes.get("/impnao/api/maps/:name/remove", remove);
 }
 
 fn get(modules: &Modules, _: UriParams, _: BodyParams) -> RouteResult {
     let maps: &Maps = modules.get().unwrap();
 
-    let mut data = maps.all();
-    for map in &mut data {
-        map.password = "".into(); // Don't expose this
-    }
+    let data = maps.all(); // Keep in mind, passwords are exposed, they're not meant to be secure
 
     Raw(serde_json::to_string(&data).unwrap().into())
 }
@@ -34,12 +31,10 @@ fn add(modules: &Modules, _: UriParams, body: BodyParams) -> RouteResult {
     Raw("".into())
 }
 
-fn remove(modules: &Modules, _: UriParams, body: BodyParams) -> RouteResult {
+fn remove(modules: &Modules, uri: UriParams, _: BodyParams) -> RouteResult {
     let maps: &Maps = modules.get().unwrap();
 
-    let text = body.as_text().unwrap();
-    let remove_data: MapRemoveModel = serde_json::from_str(text).unwrap();
-    maps.remove(&remove_data.name, &remove_data.password);
+    maps.remove(&uri.get("name").unwrap());
 
     Raw("".into())
 }
