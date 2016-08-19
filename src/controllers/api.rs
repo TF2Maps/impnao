@@ -8,7 +8,7 @@ use modules::Maps;
 pub fn register(routes: &mut Routes) {
     routes.get("/impnao/api/maps", get);
     routes.post("/impnao/api/maps", add);
-    routes.delete("/impnao/api/maps/:name/remove", remove);
+    routes.delete("/impnao/api/maps/:name", delete);
 }
 
 fn get(modules: &Modules, _: UriParams, _: BodyParams) -> RouteResult {
@@ -29,7 +29,7 @@ fn add(modules: &Modules, _: UriParams, body: BodyParams) -> RouteResult {
     Raw("".into())
 }
 
-fn remove(modules: &Modules, uri: UriParams, _: BodyParams) -> RouteResult {
+fn delete(modules: &Modules, uri: UriParams, _: BodyParams) -> RouteResult {
     let maps: &Maps = modules.get().unwrap();
 
     maps.remove(&uri.get("name").unwrap());
