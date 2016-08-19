@@ -8,9 +8,7 @@ use modules::Maps;
 pub fn register(routes: &mut Routes) {
     routes.get("/impnao/api/maps", get);
     routes.post("/impnao/api/maps", add);
-
-    // TODO: These routes don't conform to REST
-    routes.get("/impnao/api/maps/:name/remove", remove);
+    routes.delete("/impnao/api/maps/:name/remove", remove);
 }
 
 fn get(modules: &Modules, _: UriParams, _: BodyParams) -> RouteResult {
